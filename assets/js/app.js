@@ -39,5 +39,9 @@ function createTable(data) {
     container.appendChild(table);
 }
 
-// Call the fetchJSON function with the URL of your JSON file
-fetchJSON('assets/js/EFO023.json');
+
+
+document.addEventListener('DOMContentLoaded', function() {
+    // Call the fetchCSV function with the URL of your CSV file
+    fetchCSV('yourfile.csv');
+});
