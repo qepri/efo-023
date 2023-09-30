@@ -1,7 +1,4 @@
-document.addEventListener('DOMContentLoaded', function() {
-    // Call the fetchJSON function with the URL of your JSON file
-    fetchJSON('https://2023.experimentalfilms.online/assets/js/EFO023.json');
-});
+
 
 async function fetchJSON(url) {
     try {
