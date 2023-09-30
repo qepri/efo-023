@@ -1,10 +1,9 @@
 
-
 async function fetchJSON(url) {
     try {
         const response = await fetch(url);
         if (!response.ok) throw new Error('Network response was not ok' + response.statusText);
-        const jsonData = await response.json();
+        const jsonData = JSON.parse(await response.text());
         createTable(jsonData);
     } catch (error) {
         console.error('Error fetching or parsing JSON', error);
@@ -43,10 +42,12 @@ function createTable(data) {
 
 
 
+
 // Call the fetchJSON function with the URL of your JSON file
 fetchJSON('assets/js/EFO023.json');
 
-console.log ()
+
+
 
 
 
