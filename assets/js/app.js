@@ -1,3 +1,8 @@
+document.addEventListener('DOMContentLoaded', function() {
+    // Call the fetchJSON function with the URL of your JSON file
+    fetchJSON('assets/js/EFO023.json');
+});
+
 async function fetchJSON(url) {
     try {
         const response = await fetch(url);
@@ -39,7 +44,14 @@ function createTable(data) {
     container.appendChild(table);
 }
 
+
+
 // Call the fetchJSON function with the URL of your JSON file
 fetchJSON('assets/js/EFO023.json');
+
+console.log ()
+
+
+
 
 
