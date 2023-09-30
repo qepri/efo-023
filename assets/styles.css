@@ -31,7 +31,7 @@ nav span {
 .selection {
     background-color: rgba(113, 113, 113, 0.834);
     color: white;
- 
+    width: 100%;
     padding-top: 12vh;
     padding-bottom: 19vh;
 }
