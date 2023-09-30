@@ -23,6 +23,10 @@ nav {
     color: white;
 }
 
+nav span {
+ padding-left: 20px;
+}
+
 .selection {
     background-color: rgba(113, 113, 113, 0.834);
     color: white;
@@ -50,6 +54,7 @@ nav {
 
 footer {
     position: fixed;
+    display: block;
     text-align: center;
     align-items: center;
     bottom: 0;
@@ -61,13 +66,27 @@ footer {
     background-color: black;
 }
 
+footer div {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+footer video {
+    height: 1.7em;
+    margin-top: -15px;
+    z-index: -1;
+}
+
 footer h5 {
     letter-spacing: 5px;
+    margin-bottom: -5px;
 }
 
 footer a {
     text-decoration: none;
-    color: orange;
+    color:white;
 }
 
 footer a:hover {
@@ -84,7 +103,7 @@ footer img {
 footer span {
     font-family: 'Roboto Mono';
     font-size: 12px;
-    padding-top: -10px;
+    padding-top: -15px;
 }
 
 @keyframes hueRotateAnimation {
