@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=IM+Fell+English:ital@0;1&family=Roboto+Mono:wght@200;400&family=Wavefont:wght@200&display=swap');
 
 * {
-    margin:  auto 0; 
+    margin:   0 auto; 
 }
 body {
     font-family: 'Roboto Mono', monospace;
@@ -15,7 +15,17 @@ h1, h2,h3, h4 {
     color: white;
 }
 
-nav {
+.navbar-brand {
+    letter-spacing: 3px;
+    text-transform: uppercase;
+}
+
+.bg-dark {
+    background-color: #000000!important;
+   
+}
+
+/* title {
     background-color: black;
     text-align: center;
     position: fixed;
@@ -26,21 +36,37 @@ nav {
 
 nav span {
  padding-left: 20px;
-}
+} */
 
 .selection {
     background-color: rgba(113, 113, 113, 0.834);
     color: white;
     width: 100%;
-    padding-top: 12vh;
+    padding-top: 4vh;
     padding-bottom: 19vh;
+   
+    
+    object-fit: cover;
 }
 
 .selection td, th {
     color: white;
     margin-top: 30px;
     
+    
 }
+.selection  th {
+    background-color: #464646;
+  
+   
+
+}
+
+.slogan {
+    white-space: nowrap ;
+    text-overflow: ellipsis;
+}
+
 
 
 .bgVideo {  
@@ -120,5 +146,18 @@ footer span {
     animation: hueRotateAnimation 10s linear infinite;
   }
   
+  @media (max-width: 576px) {
+    /* Your CSS rules for cellphone or small screens go here */
+    .slogan {
+        font-size: 18px;
+        text-align: center;
+    }
+
+    .navbar-brand {
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        font-size: 18px;
+    }
+}
 
   
