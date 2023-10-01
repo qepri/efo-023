@@ -12,11 +12,18 @@ body {
 }
 
 .hero {
-    padding-top: 90px;
-    padding-bottom: 20px;
+     padding-top: 90px;
+    padding-bottom: 90px; 
     text-align: center;
-    background-color: rgb(32, 101, 0);
+    background-color: rgba(32, 101, 0, 0.725);
 
+}
+
+.hero img {
+    width: 512px;
+}
+.hero h4 {
+    padding-bottom: 30px;
 }
 
 .scrollable-table {
@@ -180,6 +187,10 @@ footer span {
         letter-spacing: 2px;
         text-transform: uppercase;
         font-size: 13px;
+    }
+
+    .hero img {
+        width: 256px;
     }
 }
 
