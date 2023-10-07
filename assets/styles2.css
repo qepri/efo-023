@@ -12,11 +12,10 @@ body {
 }
 
 .hero {
-     padding-top: 90px;
+    padding-top: 90px;
     padding-bottom: 90px; 
     text-align: center;
-    background-color: rgba(32, 101, 0, 0.725);
-
+    background-image: linear-gradient(rgba(32, 101, 0, 0.725), transparent);
 }
 
 .hero img {
