@@ -1,77 +1,259 @@
-
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Experimental Films Online - Selección 2023: El Sol Brilla Para Tod☀️s</title>
-    <meta property="og:image" content="../assets/img/ElSolBrillaParaTodxs.png">
-    <meta name="description" content="Watch experimental films online. From different parts of the world, directly to your eyes, heart and soul.
-    Mira cine experimental online. De diferentes partes del mundo directamente a tus ojos corazón y alma.">
-    <meta property="og:type" content="website">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <link rel="stylesheet" href="assets/styles2.css">
-   
-
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+        Experimental Films Online - Selección Kwalhia:{{ film }} by {{ filmmaker
+        }} / {{ country }}
+    </title>
+    <meta property="og:image" content="../../assets/img/ElSolBrillaParaTodxs.png" />
+    <meta name="description"
+        content="sinopsis: {{ country }} Watch experimental films online. Mira cine experimental online. " />
+    <meta property="og:type" content="website" />
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="assets/css/film_player.css" /> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top   p-3">
-    <a class="navbar-brand" href="#">Experimental Films Online</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse  text-end justify-content-end " id="navbarNav">
-        <ul class="navbar-nav ml-auto  ">
-            <li class="nav-item">
-                <a class="nav-link" href="#">🧠 Psynemas</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">❓ FAQ</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">👨‍💻 Programas</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">📭 Contacto</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">👽 Sobre Nosotros</a>
-            </li>
-        </ul>
-    </div>
-</nav>
+
 <body>
-    <video class="hueRotate bgVideo" loop autoplay muted src="assets/sun.mp4" type="video/mp4"></video>
-    
-<section class="hero hueRotate"
-> <h4>El S🧠l brilla para T👁️d☀️s</h4>
-<img src="assets/img/ElSolBrillaParaTodxs.png" alt="">
-</section>
-<main class="container scrollable-table ">
-       <table class="table  table-striped table-dark table-hover hueRotate"><thead ><tr><th>Realizadores</th><th>FILM</th><th>Origen</th></tr></thead><tbody><tr><td>Gilbert Brüning</td><td>Bésame Mucho &amp; the East Side Gallery Berlin</td><td>Germany</td></tr><tr><td>Faiyaz Jafri</td><td>Shine</td><td>United States</td></tr><tr><td>Faiyaz Jafri</td><td>Are You OK?</td><td>United States</td></tr><tr><td>Patrick Chemali</td><td>Clotheslined</td><td>Lebanon</td></tr><tr><td>Pierre Villemin</td><td>36000</td><td>France</td></tr><tr><td>Julian Rodriguez</td><td>THE WAY OF THE FISH</td><td>Spain</td></tr><tr><td>Guillaume Marin</td><td>La modernité devient liquide /The Modern Sea is Dying</td><td>Canada</td></tr><tr><td>Martin Del Carpio, Martin Gerigk</td><td>Howl</td><td>United States</td></tr><tr><td>Martin Del Carpio</td><td>The Dark Forest</td><td>United States</td></tr><tr><td>Martin Del Carpio</td><td>LOS</td><td>United States</td></tr><tr><td>Martin Del Carpio</td><td>A Poet's Seat</td><td>United States</td></tr><tr><td>Kang Le</td><td>I've travelled 9,000 km to see you</td><td>Taiwan</td></tr><tr><td>Kang Le</td><td>The Garden of Forking Paths</td><td>Taiwan</td></tr><tr><td>Morgane Billuart</td><td>Gifted</td><td>Netherlands</td></tr><tr><td></td><td>8</td><td>China</td></tr><tr><td>Jorge Marcelo Espinoza</td><td>Mexican Symphony</td><td>Mexico</td></tr><tr><td>Philippe Safire</td><td>SPELL</td><td>United States</td></tr><tr><td>Héctor Maya</td><td>Metropolitan</td><td>Mexico</td></tr><tr><td>Pamela Falkenberg, Jack Cochran</td><td>The Names of Trees (with Spanish subtitles)</td><td>United States</td></tr><tr><td>Enzo Cillo</td><td>Propagation and Detection</td><td>Italy</td></tr><tr><td>Ana Baer, Rocio Luna</td><td>Sympoiesis</td><td>Mexico</td></tr><tr><td>Ana Baer, Rocio Luna</td><td>IXCHEL</td><td>Mexico</td></tr><tr><td>Ana Baer, Olivia</td><td>Being Together</td><td>United States</td></tr><tr><td>Andrew Payne</td><td>Landscape with water</td><td>United Kingdom</td></tr><tr><td>Elliot Eugenie</td><td>Liesse</td><td>France</td></tr><tr><td>Fanny Leiva Torres</td><td>Ojo-Piel</td><td>Chile</td></tr><tr><td>Roman Duneshenko</td><td>In the Dark</td><td>Russian Federation</td></tr><tr><td>Francesco Bo Coppola</td><td>God Luck Hope</td><td>Italy</td></tr><tr><td>Isabel García, Elsa Blueve</td><td>CUNT-CENTRISM</td><td>Spain</td></tr><tr><td>Olaf Viana</td><td>Fin del eclipse</td><td>Mexico</td></tr><tr><td>Hiroshi Atobe</td><td>Video Ladder</td><td>Not Specified</td></tr><tr><td>Liliana Paganini</td><td>the words</td><td>Italy</td></tr><tr><td>Laura R. Tolentino</td><td>T́͋̐ʜ͕̪͐̽̚ᴇ͇͇̼͒͌͝ʏ͌͜͝ ᴘ͓͐̈́͘͜ʀ͎̺̺͊̓̓ᴏ͓͓͇͒͠ᴍ̡̫͖̀́͝ɪ̻̠̺̔̀s͖͆͊͜͠ᴇ͍̙̺̓͊̕ᴅ̙̟̺͐͊͒ ᴜ͎͕̪̾͌̕s͎͓͐͑͘ ᴀ̟͛̓͛ ғ͉͔̪̿͛͝ᴜ̪͉̫̀͑͝ᴛ͚͔̒͋͛ᴜ͍͑̔͒ʀ͙̙͛͛͜ᴇ̽</td><td>Mexico</td></tr><tr><td>Luis Carlos Rodríguez</td><td>Collage 38.2 (versión múltiple)</td><td>Spain</td></tr><tr><td>Luis Carlos Rodríguez</td><td>AbstrArt 22</td><td>Spain</td></tr><tr><td>Tymoteusz Mierzwiński</td><td>Talking Heads - Silence</td><td>Poland</td></tr><tr><td>Victor Volkov</td><td>The three naughty</td><td>Mexico</td></tr><tr><td>Amelia Johannes</td><td>Resetting memories (taking/the waterfall)</td><td>Australia</td></tr><tr><td>Walter A. Lagarda-Parra</td><td>X</td><td>Mexico</td></tr><tr><td>Guido Devadder</td><td>Hungry Ghost</td><td>Belgium</td></tr><tr><td>Nicole Rayburn</td><td>nobody cares work harder</td><td>Canada</td></tr><tr><td>Finn Harvor</td><td>Walk/ night/ flight (new cut)</td><td>Korea, Republic of</td></tr><tr><td>Jared Donovan Paolini</td><td>Unearth Arcana</td><td>United States</td></tr><tr><td>Nate Dorr</td><td>Triboro</td><td>United States</td></tr><tr><td>Nate Dorr</td><td>Algorithmia</td><td>United States</td></tr><tr><td>Efi Amanatidou</td><td>The world where we live in is not the real world</td><td>Greece</td></tr><tr><td>Philipp Ramspeck</td><td>PRISON TIME IS OVER</td><td>Switzerland</td></tr><tr><td>Dimitris Nikou</td><td>Wayfarer</td><td>Greece</td></tr><tr><td>Alexandre Dacosta</td><td>AKANGATUMIRIMUSIKA</td><td>Brazil</td></tr><tr><td>Alexandre Dacosta</td><td>[ technopoetics ]</td><td>Brazil</td></tr><tr><td>Mody Gao</td><td>Rendezvous for the Old</td><td>China</td></tr><tr><td>Jorge Luis González Reyes</td><td>Eternity starts in Monday </td><td>Mexico</td></tr><tr><td>Carlos Vázquez</td><td>When the barbarians arrive :: The mass</td><td>Mexico</td></tr><tr><td>Serkan Aktaş</td><td>Resurrection under the Ocean</td><td>Turkey</td></tr><tr><td>Brandon Polanco</td><td>Alchemy</td><td>United States</td></tr><tr><td>Mona Rossi</td><td>Lettere</td><td>France</td></tr><tr><td>Alma Llerena</td><td>Inaka</td><td>Spain</td></tr><tr><td>Alexandre Ries</td><td>Puu O)))</td><td>France</td></tr><tr><td>Yaniv Touati</td><td>The escape</td><td>France</td></tr><tr><td>Mont Carver</td><td>The hangover of love</td><td>Mexico</td></tr><tr><td>Mikhail Gulkov</td><td>Fusion</td><td>Russian Federation</td></tr><tr><td>Dustin Chang</td><td>ceremony</td><td>United States</td></tr><tr><td></td><td>Labyrinth</td><td>Brazil</td></tr><tr><td>Paloma González H</td><td>Causal leaker</td><td>Uruguay</td></tr><tr><td>patrick connelly</td><td>Pin and Tumbler</td><td>United States</td></tr><tr><td>Matthew Sanabria</td><td>Avrocar</td><td>Mexico</td></tr><tr><td>Eva Rini May Cragg</td><td>Ben and Mimi - Mimi and Ben</td><td>United States</td></tr><tr><td>Jacklyn Brickman, Carter John Rice</td><td>käˌnekˈtivədē : connectivity </td><td>United States</td></tr><tr><td>Michael Cook</td><td>I Am The Same</td><td>United States</td></tr><tr><td>Mariola Groener, Günther Wilhelm</td><td>FRAMES FRAGMENTS FREQUENCIES | CHAPTER #3</td><td>Germany</td></tr><tr><td>Théo Michel</td><td>Of  Light and of Breath</td><td>France</td></tr><tr><td>Michelle Longpre</td><td>Planeta Carnom</td><td>Canada</td></tr><tr><td>Can Ege İlhan</td><td>Sun of God</td><td>Turkey</td></tr><tr><td>Tatjana Evonuk</td><td>"""The Inner Project"""</td><td>Ireland</td></tr><tr><td>Joshua Albers</td><td>Transfer</td><td>United States</td></tr><tr><td>Dina Yanni</td><td>The Dark, Debra</td><td>Austria</td></tr><tr><td>Rose Prsent</td><td>Les Mil cares del foc</td><td>Spain</td></tr></tbody></table></div>
-    </main>
-    
-
-    <footer style="filter: invert();">
-        <div style="text-align: center;">
-        <img src="https://kwalhia.com/assets/img/kwh_logo.png" alt="">  
-        <video style="filter: invert();"  
-        loop autoplay muted  src="assets/laurel.mp4"></video>
-    </div>
-        <h5>
+    <nav class="navbar navbar-expand-lg lg navbar-dark fixed-top bg-black">
+        <div class="container-fluid">
+            <a class="navbar-brand px-2" href="#">Experimental Films Online </a>
+            <!-- <div class="collapse navbar-collapse" id="navbarNavDropdown">
+          <ul class="navbar-nav">
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Genres
+              </a>
+            
+            </li>
            
-          <a href="https://kwalhia.com"> kwalhia  </a>
-        
-       
-        </h5>
-        <span>Selección Oficial 2023</span>
-        
-       
-    </footer>
+          </ul> -->
 
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+            <div class="collapse navbar-collapse  justify-content-center  " id="navbarNav">
+                <ul class="navbar-nav ml-auto px-3   ">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#"> Psynemas</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#"> FAQ</a>
+                    </li>
+                    <!-- <li class="nav-item">
+                        <a class="nav-link" href="#">👨‍💻 Programas</a>
+                    </li> -->
+                    <li class="nav-item">
+                        <a class="nav-link" href="#"> Contacto</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">👽 Sobre Nosotros</a>
+                    </li>
+                </ul>
+            </div>
+            <form class="d-flex ms-auto col-4 col-md-3">
+                <input class="form-control me-2 " type="search" placeholder="Encontrar..." aria-label="Search">
+                
+                <button type="button" class="btn btn-primary hueRotate " data-bs-toggle="modal" data-bs-target="#searchModal">
+                   Buscar
+                </button>
+              
+          
+            </form>
+            <!-- <button class="btn btn-primary ms-2">Log in</button>
+          <button class="btn btn-outline-primary ms-2">Registration</button> -->
+        </div>
+        </div>
+    </nav>
 
+
+    <main class="film_screen" id="app">
+        <div id="gifCarousel" class="carousel slide carousel-fade " data-bs-ride="carousel" data-bs-interval="30000">
+            <div class="carousel-inner">
+                <div v-for="(gif, index) in randomGifs" :class="['carousel-item', { 'active': index === 0 }]"
+                    v-if="filmsData.length > 0">
+                    <img class="d-block w-100" :src="gif" :alt="'GIF ' + (index + 1)" 
+                    style="height: 98vh !important;"/>
+                    <div class="text-start  carousel-caption d-none d-md-block px-4"
+                        style="background-color: rgba(12, 12, 12, 0.708); border-radius: 30px;">
+                        <h2>
+                            <a :href="'cinema/' + filmsData[index].path + '.html'">
+                                <i class="fa-solid fa-play px-3"></i>{{ filmsData[index].film }}
+                            </a>
+                        </h2>
+                        <hr>
+                        
+                            <h3>{{ filmsData[index].filmmaker }} </h3>
+                            <h5>({{ filmsData[index].country }}) {{ filmsData[index].runtime }} min</h5>
+                            <!-- <p>{{ filmsData[index].sinopsis }}</p> -->
+                     
+                    </div>
+                </div>
+                <a class="carousel-control-prev" href="#gifCarousel" role="button" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#gifCarousel" role="button" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </a>
+            </div>
+
+        </div>
+
+        <!-- Left and right controls -->
+
+        </div>
+        </div>
+
+        <section class="seleccion">
+            <a href="https://kwalhia.com">
+                <img src="assets/img/kwh_logo.png" alt="" />
+            </a>
+            <video muted autoplay loop src="assets/laurel.mp4" alt=""></video>
+            <h1>Selección Kwalhia</h1>
+        </section>
+        <style>
+
+        </style>
+        <div class="container posters">
+            <div class="row">
+                <div v-for="(poster, index) in limitedPosters" class="col-sm-6 col-md-3 col-lg-3 poster-display" 
+                data-bs-toggle="tooltip" data-bs-placement="right" 
+                :title="filmsData[index].sinopsis"
+                >
+                    
+                    <!-- <div class="poster-container"> -->
+                    <a :href="'cinema/' + filmsData[index].path + '.html'" class="play-icon">
+                        <img  :src="poster" :alt="'Poster ' + (index + 1)" />
+                        <!-- <i class="fa-solid fa-play play-icon"></i>  -->
+                      <div class="hueRotate"  >  <span class="poster-title">{{ filmsData[index].film }}
+                        <p>{{ filmsData[index].filmmaker }}</p></span>
+                       <span>
+                        ({{ filmsData[index].country }})
+                       </span>
+                        <span class="runtime">
+                            {{ filmsData[index].runtime }} min</span>
+                        </div>
+                     
+                    </a>
+                <!-- </div> -->
+                </div>
+            </div>
+        </div>
+    </main>
+
+    
+
+    <!-- Modal -->
+    <div class="modal custom-modal fade modal-bg mt-3" id="searchModal" tabindex="-1" aria-labelledby="searchModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content bg-dark">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="searchModalLabel">Buscar</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="row">
+                            <div class="col-6 mb-3">
+                                <label for="searchDirector" class="form-label">Director</label>
+                                <input type="text" class="form-control" id="searchDirector"
+                                    placeholder="Director's Name">
+                            </div>
+                            <div class="col-6 mb-3">
+                                <label for="searchTitle" class="form-label">Title</label>
+                                <input type="text" class="form-control" id="searchTitle" placeholder="Movie Title">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-6 mb-3">
+                                <label for="searchYear" class="form-label">Year</label>
+                                <input type="number" class="form-control" id="searchYear" placeholder="Year">
+                            </div>
+                            <div class="col-6 mb-3">
+                                <label for="searchCountry" class="form-label">Country</label>
+                                <input type="text" class="form-control" id="searchCountry" placeholder="Country">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Buscar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <script src="assets/js/boostrap.min.js"></script>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+    <script>
+        const { createApp, ref, onMounted } = Vue;
+
+        createApp({
+            setup() {
+                // Define reactive properties
+                const randomGifs = ref([]);
+                const limitedPosters = ref([]);
+                const filmsData = ref([]);
+
+                const fetchData = async () => {
+                    try {
+                        const response = await fetch("assets/2023/efoDB_023_v3.json");
+                        const data = await response.json();
+
+                        const shuffledData = shuffleArray([...data]); // Use a copy of the data array
+
+
+
+                        function shuffleArray(array) {
+                            var currentIndex = array.length,
+                                temporaryValue,
+                                randomIndex;
+                            // While there remain elements to shuffle...
+                            while (0 !== currentIndex) {
+                                // Pick a remaining element...
+                                randomIndex = Math.floor(Math.random() * currentIndex);
+                                currentIndex -= 1;
+
+                                // And swap it with the current element.
+                                temporaryValue = array[currentIndex];
+                                array[currentIndex] = array[randomIndex];
+                                array[randomIndex] = temporaryValue;
+                            }
+                            return array;
+                        }
+
+                        // Set data for gifs and posters
+                        randomGifs.value = shuffledData
+                            .slice(0, 5)
+                            .map((item) => "../assets/2023/gifs/" + item.gif);
+                        limitedPosters.value = shuffledData
+                            .slice(0, 12)
+                            .map(
+                                (item) => "../assets/2023/posters/" + item.poster + ".jpg"
+                            );
+
+                        filmsData.value = shuffledData;
+                    } catch (error) {
+                        console.error("Error fetching data:", error);
+                    }
+                };
+
+                // Call fetchData on mount
+                onMounted(fetchData);
+
+                return { randomGifs, limitedPosters, filmsData };
+            },
+        }).mount("#app");
+    </script>
 </body>
+
 </html>

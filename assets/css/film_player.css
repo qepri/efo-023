@@ -1,0 +1,276 @@
+body {
+    font-family: 'Roboto Mono', monospace;
+}
+
+.film_screen {
+    margin: 0px;
+    height: 100vh;
+    overflow-x: hidden;
+
+    && h1 {
+        font-size: 5vh;
+    }
+
+    && a {
+        color: white;
+        text-decoration: none !important;
+    }
+
+    && a:hover, i:hover {
+        color:  rgb(151, 255, 151);
+    }
+}
+
+.film_player {
+    position: relative;
+    padding-top: 56.25%;
+    /* 16:9 Aspect Ratio */
+
+    && iframe, img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+}
+
+
+  
+
+
+
+/* posters  */
+
+.posters {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+
+    z-index: 2;
+    padding-bottom: calc(100% * 768 / 497); 
+    background-color: rgba(255, 255, 255, 0.584);
+
+    && img {
+        position: relative;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        z-index: 3;
+        padding: 10px;
+        transition: transform 0.3s ease;
+
+        
+    }
+
+    && img:hover {
+       transform: scale(1.05);
+      
+    }
+
+    && i {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 9em;
+        color: white;
+        z-index: 10;
+        opacity: 1;
+        transition: opacity 0.3s ease;     
+    }
+
+    && i:hover {
+        opacity: 1;
+        color: rgb(120, 120, 120);
+    
+    }
+
+    && a {
+        display: block;
+        text-decoration: none;
+        background-color: black;
+        padding: 10px;
+        margin: 10px;
+      
+    }
+
+    && a:hover {
+        z-index: 10;
+    }
+
+    && p {
+        font-weight: bold;
+        text-transform: capitalize !important;
+    }
+
+    && span {
+        text-transform: uppercase;
+        /* display: flex;
+        flex-direction: column; */
+    }
+
+    && .runtime {
+        font-weight: lighter;
+        text-transform: none !important;
+    }
+
+    && tooltip {
+        max-width: 50vw;
+        max-height: 50vh;
+        padding: 40px;
+    }
+
+}
+
+
+
+
+
+.container {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: stretch;
+    padding: 10px;
+    
+    flex-direction: column;
+
+}
+
+
+
+.seleccion {
+    position: relative;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 2vh;
+    margin-top: 2vh;
+
+    && img {
+        height: 7em;
+        margin-top: 5px;
+        padding: 3px;
+        filter: invert()
+    }
+
+    && video {
+        height: 4em;
+        margin-top: -17px;
+    }
+
+    && h1 {
+        color: black;
+        padding-top: 10px;
+        font-size: 2em;
+        font-family: 'Im Fell English';
+        font-weight: bold;
+        letter-spacing: 14px;
+    }
+
+
+    }
+
+
+footer {
+    position: relative;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 2vh;
+    margin-top: 2vh;
+
+    && img {
+        height: 5em;
+        margin-top: 5px;
+        padding: 3px;
+        filter: invert()
+    }
+
+    && video {
+        height: 1.9em;
+        margin-top: -17px;
+    }
+
+    && h2 {
+        color: black;
+        padding-top: 10px;
+        font-size: 1.2em;
+        letter-spacing: 4px;
+        font-family: 'Im Fell English';
+        font-weight: bold;
+    }
+}
+
+
+/* modal  */
+
+.modal-bg {
+    backdrop-filter: blur(4px);
+}
+
+.movie-title { font-size: 4rem; color: #565656; }
+.movie-rating { color: #ffd700; } /* Adjust color for rating */
+.movie-category { background-color: #6c757d; } /* Bootstrap secondary color for the category badge */
+
+
+input {
+    background-color: black !important;
+    color: rgb(151, 255, 151) !important;
+   
+    
+}
+
+::placeholder {
+    color: rgba(241, 255, 241, 0.675) !important;
+}
+
+.form-control:focus {
+    border-color: rgb(255, 255, 255) !important;
+    box-shadow: 0 0.2rem .2rem 0.2rem rgba(146, 146, 146, 0.577) !important;
+} 
+
+
+.btn-close:hover {
+    color: red;
+    background-color: red;
+    border-radius: 100px;
+}
+
+
+.custom-modal {
+    --bs-modal-width: 750px !important;
+}
+
+.btn-primary {
+    background-color: rgb(187, 36, 36) !important;
+    border-color: rgba(255, 255, 255, 0.329) !important;
+    border-radius: 10px !important;
+}
+
+.btn-primary:hover {
+    background-color: rgb(129, 15, 15) !important;
+}
+
+
+
+
+  @keyframes hueRotateAnimation {
+    0% {
+      filter: hue-rotate(0deg);
+    }
+    100% {
+      filter: hue-rotate(360deg);
+    }
+  }
+  
+  .hueRotate {
+    animation: hueRotateAnimation 10s linear infinite;
+  }

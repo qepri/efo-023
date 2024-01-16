@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Static Site Generator - Minimal Website Generator</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.7.1/jszip.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
+  </head>
+  <body>
+    <style>
+      body {
+        font-family: Roboto Mono;
+        margin: 0;
+        background-color: #484848;
+        color: #bfbfbf;
+        padding-left: 20vw;
+        padding-right: 20vw;
+      }
+
+      main {
+        display: flex;
+        flex-direction: column;
+
+        && h1 {
+          font-weight: bold;
+          color: white;
+        }
+
+        && span {
+          font-style: italic;
+          font-size: monospace;
+          color: rgb(114, 255, 114);
+          padding-top: 5px;
+        }
+
+        && hr {
+            width: 100%;
+        }
+        && a {
+            color: white;
+            border-color: black;
+            stroke-width: 3px;
+            padding: 2px;
+            margin: 2px;
+        }
+
+        && a:hover {
+            color: #e06969;
+            background-color: black;
+            
+        }
+
+        && div {
+            padding: 2vw;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+        }
+
+        && label {
+            background-color: rgb(0, 0, 0);
+            padding: 20px;
+            border-radius: 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        && input, button {
+            color: white;
+            padding: 10px;
+        }
+
+        && button {
+            border-radius: 20px;
+            background-color: rgb(0, 72, 0);
+            color: white;
+            padding: 1vw;
+            margin: 20px;
+            font-size: 25px;
+        }
+
+        && button:hover {
+            background-color: #600d0d;
+        }
+
+      }
+
+    </style>
+
+    <main>
+      <h1>Static Site Generator</h1>
+      <p>by  <a href="https://dev.sergioAguirrre.com">Sergio Aguirrre</a></p>
+      <span>Keep it simple stupid!</span>
+      <hr/>
+      <h2>
+        why a static site?
+      </h2>
+      <ol>
+        <li>Its FREE to host</li>
+        <li>The internet is your friend, use it properly without enterprise bloat</li>
+        <li>Quick and easy for users to read and navigate</li>
+        <li>Better SEO</li>
+        <li>You don't need always a framework for simple tasks</li>
+      </ol>
+      <h2>
+        instructions
+      </h2>
+      <p>
+        <ol>
+            <li>Make a json file from your data</li>
+            <li>Create a template html file, use '{{variable}}' for injecting the data of the json</li>
+            <li>Upload the json, and the template</li>
+            <li> 
+              <input for="usePathForName" type="checkbox" id="usePathForName" checked></label>
+              <span>Use '{{path}}' in your json for filename</span>
+            </li>
+            <li>Press the button and generate your files</li>
+            <li>Enjoy!</li>
+        </ol>
+      </p>
+    
+      <div>
+        <label for="JSON DATA">JSON DB
+        <input type="file" id="jsonFileInput" accept=".json"></label>
+        <label for="TEMPLATE FILE">TEMPLATE FILE
+        <input type="file" id="templateFileInput" accept=".html">
+      </div>
+
+      
+     
+    
+      
+      <button  id="processButton">Generate</button>
+    </main>
+    
+    
+   
+    
+    <script type="text/javascript">
+     $(document).ready(function() {
+    $('#processButton').click(function() {
+        var jsonFile = document.getElementById('jsonFileInput').files[0];
+        var templateFile = document.getElementById('templateFileInput').files[0];
+        var usePath = document.getElementById('usePathForName').checked;
+
+        if (jsonFile && templateFile) {
+            readFilesAndProcess(jsonFile, templateFile, usePath);
+        } else {
+            alert("Please upload both a JSON file and a template file.");
+        }
+    });
+
+    function readFilesAndProcess(jsonFile, templateFile, usePath) {
+        var reader = new FileReader();
+
+        reader.onload = function(e) {
+            var template = e.target.result;
+            var jsonReader = new FileReader();
+
+            jsonReader.onload = function(e) {
+                var jsonData = JSON.parse(e.target.result);
+                var zip = new JSZip();
+
+                jsonData.forEach(function(item, index) {
+                    var itemHtml = template;
+                    for (var key in item) {
+                        itemHtml = itemHtml.replace(new RegExp('{{' + key + '}}', 'g'), item[key]);
+                    }
+                    // Use path for naming if checkbox is checked, otherwise use index
+                    var fileName = usePath ? item.path : index.toString();
+                    zip.file(fileName + ".html", itemHtml);
+                });
+
+                zip.generateAsync({type: "blob"}).then(function(content) {
+                    saveAs(content, "website.zip");
+                });
+            };
+
+            jsonReader.readAsText(jsonFile);
+        };
+
+        reader.readAsText(templateFile);
+    }
+});
+
+    </script>
+    
+  </body>
+</html>

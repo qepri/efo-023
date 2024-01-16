@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Movie Showcase</title>
+<script src="assets/js/hydra.js"></script>
+<script src="assets/js/sigil.js"></script>
+<link rel="stylesheet" href="assets/styles_slim.css">
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+ integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" 
+ crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+
+<style>
+ 
+  .movie-title { font-size: 4rem; color: #565656; }
+  .movie-rating { color: #ffd700; } /* Adjust color for rating */
+  .movie-category { background-color: #6c757d; } /* Bootstrap secondary color for the category badge */
+
+  canvas {
+            position: fixed;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+
+    .modal-bg {
+        backdrop-filter: blur(4px);
+    }
+</style>
+</head>
+
+<body class="text-light" style="background-color: #393939e2;">
+ 
+
+<div class="container-fluid">
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg lg navbar-dark fixed-top bg-black">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Experimental Films Online </a>
+      <!-- <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav">
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Genres
+            </a>
+          
+          </li>
+         
+        </ul> -->
+
+        <div class="collapse navbar-collapse  text-end justify-content-end " id="navbarNav">
+            <ul class="navbar-nav ml-auto px-3  ">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">🧠 Psynemas</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">❓ FAQ</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">👨‍💻 Programas</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">📭 Contacto</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="about.html">👽 Sobre Nosotros</a>
+                </li>
+            </ul>
+        </div>
+        <form class="d-flex ms-auto col-4 col-md-3">
+          <input class="form-control me-2 " type="search" placeholder="Buscar..." aria-label="Search">
+          <button type="button" class="btn btn-primary " data-bs-toggle="modal" data-bs-target="#searchModal">
+            Buscar
+        </button>
+        </form>
+        <!-- <button class="btn btn-primary ms-2">Log in</button>
+        <button class="btn btn-outline-primary ms-2">Registration</button> -->
+      </div>
+    </div>
+  </nav>
+
+  <!-- Movie Showcase -->
+  <div class="text-center text-lg-start hueRotate" style="position: relative;">
+    <img src="https://placehold.co/1920x1080" alt="Encanto Movie Background" class="img-fluid w-100" style="object-fit: cover; height: 95vh;">
+    <div class="position-absolute top-50 start-0 translate-middle-y p-5 ms-lg-5">
+      <h1 class="movie-title">El Sol brilla para todxs</h1>
+      <div class="d-flex flex-column flex-lg-row align-items-center justify-content-lg-start">
+        <span class="movie-rating fs-5 me-lg-3 bg-dark p-2 px-3 rounded-pill"><i class="fas fa-sun"></i> Selección Oficial</span>
+        <!-- <span class="movie-category badge rounded-pill text-bg-secondary px-3 py-2">Movies</span> -->
+      </div>
+      <p class="lead mt-3" style="background-color: #875757;">Luz ismorfica, transmisiones simultaneas. Metaformas para un cuerpo imaginario</p>
+      <a href="index.html"> <button class="btn btn-primary btn-lg mt-4"><i class="fas fa-play"></i> 
+        
+        Mira
+       
+        </button> </a>
+    </div>
+    <!-- Carousel Indicators -->
+    <div class="carousel-indicators position-absolute bottom-0 start-50 translate-middle-x">
+      <button type="button" data-bs-target="#movieCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+      <button type="button" data-bs-target="#movieCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+      <!-- ... more indicators ... -->
+    </div>
+  </div>
+</div>
+<div class="container">
+    <!-- Episodes Section -->
+    <div class="pt-5">
+      <h2 class="section-title mb-3">Programas</h2>
+      <hr>
+      <div class="row">
+        <!-- Card for The Mandalorian -->
+        <div class="col-md-3">
+          <div class="card text-white movie-card">
+            <img src="https://placehold.co/300x200" class="card-img" alt="The Mandalorian">
+            <div class="card-img-overlay d-flex align-items-end p-0">
+              <div class="bg-navy w-100 p-2">
+
+                <button type="button" class="btn btn-primary " data-bs-toggle="modal" data-bs-target="#previewModal">
+                <h5 class="card-title mb-0">Emisiones Homogéneas: Destellos, calor y sentido</h5>
+                <p class="card-text mb-0">2023</p>
+              </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Repeat for other series cards... -->
+      </div>
+    </div>
+  
+    <!-- Movies Section -->
+    <div class="pt-5">
+      <h2 class="section-title mb-3">Films</h2>
+      <p>Selección Oficial Kwalhia</p>
+      <hr>
+      <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+        <!-- <li class="nav-item" role="presentation">
+          <button class="nav-link active" 
+          id="latest-movies-tab" data-bs-toggle="pill" data-bs-target="#latest-movies" type="button" role="tab" aria-controls="latest-movies" aria-selected="true">Mira Cine</button>
+        </li> -->
+        <li class="nav-item" role="presentation">
+          <!-- <button class="nav-link" id="ranking-tab" data-bs-toggle="pill" data-bs-target="#ranking" type="button" role="tab" aria-controls="ranking" aria-selected="false">RANKING</button> -->
+        </li>
+        <!-- ... -->
+      </ul>
+  
+      <div class="tab-content pb-3" id="pills-tabContent">
+        <div class="tab-pane fade show active" id="latest-movies" role="tabpanel" aria-labelledby="latest-movies-tab">
+          <div class="row">
+            <!-- Movie Card -->
+            <div class="col-md-3">
+              <div class="card text-white movie-card" type="button">
+                <img src="https://placehold.co/300x400" class="card-img" alt="Talk to Me">
+                <i class="fas fa-play play-icon"></i>
+                <div class="card-img-overlay d-flex align-items-end p-0">
+                  <div class="bg-navy w-100 p-2">
+                    <h5 class="card-title mb-0">Talk to Me</h5>
+                    <p class="card-text mb-0">2023</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-3">
+                <div class="card text-white movie-card">
+                  <img src="https://placehold.co/300x400" class="card-img" alt="Talk to Me">
+                  <i class="fas fa-play play-icon"></i>
+                  <div class="card-img-overlay d-flex align-items-end p-0">
+                    <div class="bg-navy w-100 p-2">
+                      <h5 class="card-title mb-0">Talk to Me</h5>
+                      <p class="card-text mb-0">2023</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-md-3">
+                <div class="card text-white movie-card">
+                  <img src="https://placehold.co/300x400" class="card-img" alt="Talk to Me">
+                  <i class="fas fa-play play-icon"></i>
+                  <div class="card-img-overlay d-flex align-items-end p-0">
+                    <div class="bg-navy w-100 p-2">
+                      <h5 class="card-title mb-0">Talk to Me</h5>
+                      <p class="card-text mb-0">2023</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="col-md-3">
+                <div class="card text-white movie-card">
+                  <img src="https://placehold.co/300x400" class="card-img" alt="Talk to Me">
+                  <i class="fas fa-play play-icon"></i>
+                  <div class="card-img-overlay d-flex align-items-end p-0">
+                    <div class="bg-navy w-100 p-2">
+                      <h5 class="card-title mb-0">Talk to Me</h5>
+                      <p class="card-text mb-0">2023</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            <!-- Repeat for other movie cards... -->
+          </div>
+        </div>
+        <!-- Repeat for other tabs... -->
+      </div>
+    </div>
+  
+    <footer class="bg-black text-light py-3">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-6 d-flex align-items-center px-3">
+              <!-- <img src="https://placehold.co/100x50" alt="Cuevana 3 Logo" class="footer-logo me-2"> -->
+              <span>&copy; Experimental Films Online </span>
+            </div>
+            <div class="col-md-6">
+              <ul class="nav justify-content-md-end">
+                <li class="nav-item">
+                  <a class="nav-link text-light" href="#">Terms of service</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link text-light" href="#">Privacy policy</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link text-light" href="#">Contact</a>
+                </li>
+                <!-- Social media icons -->
+                <li class="nav-item">
+                  <a class="nav-link text-light" href="#"><i class="fab fa-twitter"></i></a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link text-light" href="#"><i class="fab fa-dribbble"></i></a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </footer>
+
+
+      <!-- Modal -->
+<div class="modal custom-modal fade modal-bg mt-3" id="searchModal" tabindex="-1" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content bg-dark">
+            <div class="modal-header">
+                <h5 class="modal-title" id="searchModalLabel">Buscar</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form>
+                  <div class="row">
+                    <div class="col-6 mb-3">
+                        <label for="searchDirector" class="form-label">Director</label>
+                        <input type="text" class="form-control" id="searchDirector" placeholder="Director's Name">
+                    </div>
+                    <div class="col-6 mb-3">
+                        <label for="searchTitle" class="form-label">Title</label>
+                        <input type="text" class="form-control" id="searchTitle" placeholder="Movie Title">
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-6 mb-3">
+                        <label for="searchYear" class="form-label">Year</label>
+                        <input type="number" class="form-control" id="searchYear" placeholder="Year">
+                    </div>
+                    <div class="col-6 mb-3">
+                        <label for="searchCountry" class="form-label">Country</label>
+                        <input type="text" class="form-control" id="searchCountry" placeholder="Country">
+                    </div>
+                  </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Buscar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+     .modal-content-custom {
+            background-color: #484848; /* Dark background */
+            color: white;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        .modal-movie-image {
+            width: 100%;
+            border-radius: .25rem; /* Bootstrap default border-radius */
+            margin-bottom: 1rem;
+        }
+
+        .modal-movie-info {
+            font-size: 0.875rem; /* 14px */
+            margin-bottom: 0.5rem;
+        }
+
+        .modal-movie-title {
+            font-size: 1.875rem; /* 30px */
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+
+        .modal-movie-year,
+        .modal-movie-director {
+            font-size: 0.875rem; 
+        }
+
+        .descripcion {
+          max-height: 13vh;
+          overflow-y: auto;
+        }
+
+        .modal-movie-description {
+            font-size: 1.2rem; /* 14px */
+            margin-bottom: 1rem;
+        }
+
+        .modal-footer-custom {
+            border-top: 1px solid #333;
+            padding-top: 1rem;
+        }
+
+        .btn-close-custom {
+            color: white !important;
+            background: none;
+            border: none;
+            font-size: 1.25rem; /* 20px */
+            cursor: pointer;
+        }
+
+
+        .btn-close-custom:hover {
+            color: #ccc;
+           
+        }
+</style>
+ <!-- Modal Preview -->
+ <div class="modal custom-modal fade modal-bg mt-3" id="previewModal" tabindex="-1" aria-labelledby="previewModalLabel" aria-hidden="true">
+ <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content modal-content-custom">
+          <div class="modal-header border-bottom-0 ">
+             
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+
+          </div>
+          <div class="modal-body p-4">
+              <img src="https://placehold.co/600x400" alt="Movie scene with characters and a background landscape" class="modal-movie-image">
+              <h2 class="modal-movie-title">The Boy and the Heron</h2>
+              <div class="modal-movie-info">
+                  <span class="modal-movie-year">2023</span> ·
+                  <span class="modal-movie-director">Directed by Hayao Miyazaki</span>
+              </div>
+              <div class="descripcion">
+              <p class="modal-movie-description ">
+                  While the Second World War rages, the teenage Mahito, haunted by his mother’s tragic death, is relocated from Tokyo to the serene rural home of his new stepmother Natsuko, a woman who bears a striking resemblance to the boy’s mother. As he tries to adjust, this strange new world grows even stranger following the appearance of a persistent gray heron, who perplexes and bedevils Mahito, dubbing him the “long-awaited one.”
+              </p>
+            </div>
+          </div>
+          <div class="modal-footer justify-content-between modal-footer-custom">
+              <button type="button" class="btn btn-primary">Sign in to log, rate or review</button>
+              <button type="button" class="btn btn-outline-light">Share</button>
+          </div>
+      </div>
+  </div>
+</div>
+
+<script src="assets/js/sigil.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>

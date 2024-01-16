@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      Experimental Films Online - Selección Kwalhia:{{ film }} by {{ filmmaker
+      }} / {{ country }}
+    </title>
+    <meta
+      property="og:image"
+      content="../../assets/img/ElSolBrillaParaTodxs.png"
+    />
+    <meta
+      name="description"
+      content="sinopsis: {{ country }} Watch experimental films online. Mira cine experimental online. "
+    />
+    <meta property="og:type" content="website" />
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="assets/css/film_player.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+
+  <body>
+    <main class="film_screen" id="app">
+      <div
+        id="gifCarousel"
+        class="carousel slide"
+        data-ride="carousel"
+        data-interval="30000"
+      >
+        <!-- The slideshow -->
+        <div class="carousel slide" data-ride="carousel" data-interval="30000">
+          <div class="carousel-inner">
+            <div
+              v-for="(gif, index) in randomGifs"
+              :class="['carousel-item', { active: index === 0 }]"
+            >
+              <img
+                class="d-block w-100"
+                :src="gif"
+                :alt="'GIF ' + (index + 1)"
+              />
+            </div>
+          </div>
+
+          <!-- Left and right controls -->
+          <a
+            class="carousel-control-prev"
+            href="#gifCarousel"
+            role="button"
+            data-slide="prev"
+          >
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+          </a>
+          <a
+            class="carousel-control-next"
+            href="#gifCarousel"
+            role="button"
+            data-slide="next"
+          >
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+          </a>
+        </div>
+      </div>
+
+      <section class="seleccion">
+        <a href="https://kwalhia.com">
+          <img src="assets/img/kwh_logo.png" alt="" />
+        </a>
+        <video muted autoplay loop src="assets/laurel.mp4" alt=""></video>
+        <h1>Selección Kwalhia</h1>
+      </section>
+      <div class="container posters">
+        <div class="row">
+          <div
+            v-for="(poster, index) in limitedPosters"
+            class="col-sm-6 col-md-3 col-lg-3 poster-display"
+          >
+            <img :src="poster" :alt="'Poster ' + (index + 1)" />
+          </div>
+        </div>
+      </div>
+    </main>
+    <script src="assets/js/boostrap.min.js"></script>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+    <script>
+      const { createApp, ref, onMounted } = Vue;
+
+      createApp({
+        setup() {
+          // Define reactive properties
+          const randomGifs = ref([]);
+          const limitedPosters = ref([]);
+
+          const fetchData = async () => {
+            try {
+              const response = await fetch("assets/2023/efoDB_023_v3.json");
+              const data = await response.json();
+
+              function shuffleArray(array) {
+                var currentIndex = array.length,
+                  temporaryValue,
+                  randomIndex;
+                // While there remain elements to shuffle...
+                while (0 !== currentIndex) {
+                  // Pick a remaining element...
+                  randomIndex = Math.floor(Math.random() * currentIndex);
+                  currentIndex -= 1;
+
+                  // And swap it with the current element.
+                  temporaryValue = array[currentIndex];
+                  array[currentIndex] = array[randomIndex];
+                  array[randomIndex] = temporaryValue;
+                }
+                return array;
+              }
+
+              // Set data for gifs and posters
+              randomGifs.value = data
+                .slice(0, 5)
+                .map((item) => "../assets/2023/gifs/" + item.gif);
+              limitedPosters.value = data
+                .slice(0, 12)
+                .map(
+                  (item) => "../assets/2023/posters/" + item.poster + ".jpg"
+                );
+            } catch (error) {
+              console.error("Error fetching data:", error);
+            }
+          };
+
+          // Call fetchData on mount
+          onMounted(fetchData);
+
+          return { randomGifs, limitedPosters };
+        },
+      }).mount("#app");
+    </script>
+  </body>
+</html>

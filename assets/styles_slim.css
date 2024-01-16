@@ -1,0 +1,110 @@
+@import url('https://fonts.googleapis.com/css2?family=IM+Fell+English:ital@0;1&family=Roboto+Mono:wght@200;400&family=Wavefont:wght@200&display=swap');
+
+* {
+    margin: auto 0; 
+}
+
+
+body {
+    font-family: 'Roboto Mono', monospace !important;
+    width: 100%;
+}
+
+.kwh {
+    font-family: 'Im Fell English';
+    color: #d2d2d2;
+    letter-spacing: 3px;
+}
+
+h1, h2,h3, h4 {
+    font-family: 'Roboto Mono', monospace ;
+    color: white;
+}
+
+ul { font-family: 'Roboto Mono', monospace;
+}
+
+nav { font-family: 'Roboto Mono', monospace;}
+
+input {
+    background-color: black !important;
+    color: rgb(151, 255, 151) !important;
+   
+    
+}
+
+::placeholder {
+    color: rgba(241, 255, 241, 0.675) !important;
+}
+
+.form-control:focus {
+    border-color: rgb(255, 255, 255) !important;
+    box-shadow: 0 0.2rem .2rem 0.2rem rgba(146, 146, 146, 0.577) !important;
+} 
+
+
+.btn-close:hover {
+    color: red;
+    background-color: red;
+    border-radius: 100px;
+}
+
+
+.custom-modal {
+    --bs-modal-width: 750px !important;
+}
+
+.btn-primary {
+    background-color: black !important;
+    border-color: rgba(255, 255, 255, 0.329) !important;
+    border-radius: 10px !important;
+}
+
+.btn-primary:hover {
+    background-color: rgb(129, 15, 15) !important;
+}
+
+@keyframes hueRotateAnimation {
+    0% {
+      filter: hue-rotate(0deg);
+    }
+    100% {
+      filter: hue-rotate(360deg);
+    }
+  }
+  
+  .hueRotate {
+    animation: hueRotateAnimation 10s linear infinite;
+  }
+
+
+  /* Movie on hover */
+
+.movie-card {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .movie-card img {
+    transition: transform 0.3s ease;
+  }
+
+  .movie-card:hover img {
+    transform: scale(1.1);
+  }
+
+  .movie-card .play-icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 3rem;
+    color: white;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+  }
+
+  .movie-card:hover .play-icon {
+    opacity: 1;
+  }

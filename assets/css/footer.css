@@ -1,0 +1,29 @@
+footer {
+    position: relative;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 2vh;
+    margin-top: 2vh;
+
+    && img {
+        height: 3em;
+        margin-top: 5px;
+        padding: 3px;
+        filter: invert()
+    }
+
+    && video {
+        height: 1.7em;
+        margin-top: -17px;
+    }
+
+    && h1 {
+        color: black;
+        padding-top: 10px;
+        font-size: 2em;
+        font-family: 'Im Fell English';
+        font-weight: bold;
+    }
+    }
