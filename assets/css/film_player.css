@@ -260,8 +260,6 @@ input {
 }
 
 
-
-
   @keyframes hueRotateAnimation {
     0% {
       filter: hue-rotate(0deg);

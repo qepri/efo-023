@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Convert XLSX to JSON and Download</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.16.9/xlsx.full.min.js"></script>
+</head>
+<body>
+
+<input type="file" id="input-excel" />
+<button id="btn-convert">Convert to JSON</button>
+<input type="text" id="file-title" placeholder="Enter file title" />
+<button id="btn-download" style="display: none;">Download JSON</button>
+<pre id="json-output"></pre>
+
+<script>
+$(document).ready(function() {
+  var jsonData = null;
+
+  $('#btn-convert').click(function() {
+    var fileInput = document.getElementById('input-excel');
+    var files = fileInput.files;
+    if (files.length === 0) {
+      alert('Please select a file to convert!');
+      return;
+    }
+    var file = files[0];
+    var reader = new FileReader();
+    reader.onload = function(e) {
+      var data = new Uint8Array(e.target.result);
+      var workbook = XLSX.read(data, {type: 'array'});
+      
+      /* Get the first worksheet */
+      var firstSheetName = workbook.SheetNames[0];
+      var worksheet = workbook.Sheets[firstSheetName];
+      
+      /* Convert to JSON */
+      jsonData = XLSX.utils.sheet_to_json(worksheet);
+      $('#json-output').text(JSON.stringify(jsonData, null, 2));
+      $('#btn-download').show();
+    };
+    reader.readAsArrayBuffer(file);
+  });
+
+  $('#btn-download').click(function() {
+    var fileName = $('#file-title').val() || 'export';
+    var jsonStr = JSON.stringify(jsonData, null, 2);
+    var blob = new Blob([jsonStr], {type: "application/json"});
+    var href = URL.createObjectURL(blob);
+    var a = document.createElement("a");
+    a.href = href;
+    a.download = fileName + ".json";
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(href);
+  });
+});
+</script>
+
+</body>
+</html>

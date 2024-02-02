@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vimeo API Video Fetch</title>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<style>
+  #videoTable {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  #videoTable th, #videoTable td {
+    border: 1px solid #ddd;
+    padding: 8px;
+  }
+  #videoTable tr:nth-child(even){background-color: #f2f2f2;}
+  #videoTable th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #4CAF50;
+    color: white;
+  }
+  .copyButton {
+    cursor: pointer;
+    margin-bottom: 10px;
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+  }
+</style>
+</head>
+<body>
+
+<button class="copyButton" data-column="0">Copy Numbers</button>
+<button class="copyButton" data-column="1">Copy Titles</button>
+<button class="copyButton" data-column="2">Copy URIs</button>
+
+<table id="videoTable">
+  <thead>
+    <tr>
+      <th>Number</th>
+      <th>Title</th>
+      <th>URI</th>
+    </tr>
+  </thead>
+  <tbody>
+    <!-- Video rows will go here -->
+  </tbody>
+</table>
+
+<script>
+function sortVideosByTitle(videos) {
+  return videos.sort((a, b) => {
+    const numberPattern = /\d+/g;
+    const numberA = parseInt((a.name.match(numberPattern) || [])[0], 10);
+    const numberB = parseInt((b.name.match(numberPattern) || [])[0], 10);
+    return numberA - numberB;
+  });
+}
+
+$(document).ready(function() {
+  const accessToken = ''; // Please ensure this is used securely and not exposed in production
+  const apiUrl = 'https://api.vimeo.com/';
+
+  $.ajax({
+    url: apiUrl,
+    type: 'GET',
+    beforeSend: function(xhr) {
+      xhr.setRequestHeader('Authorization', 'Bearer ' + accessToken);
+    },
+    success: function(response) {
+      const sortedVideos = sortVideosByTitle(response.data);
+      sortedVideos.forEach(video => {
+        const numberPattern = /\d+/g;
+        const number = (video.name.match(numberPattern) || [])[0];
+        const videoUriNumber = video.uri.split('/').pop(); // Extract the number from the URI
+        $('#videoTable tbody').append(
+          `<tr>
+            <td>${number}</td>
+            <td>${video.name}</td>
+            <td>${videoUriNumber}</td>
+          </tr>`
+        );
+      });
+    },
+    error: function() {
+      $('#videoTable tbody').append('<tr><td colspan="3">Failed to fetch videos.</td></tr>');
+    }
+  });
+
+  $('.copyButton').click(function() {
+    const columnIndex = $(this).data('column');
+    let columnData = '';
+    $('#videoTable tbody tr').each(function() {
+      columnData += $(this).find('td').eq(columnIndex).text() + ',';
+    });
+    columnData = columnData.slice(0, -1); // Remove the last comma
+
+    const $temp = $("<textarea>");
+    $("body").append($temp);
+    $temp.val(columnData).select();
+    document.execCommand("copy");
+    $temp.remove();
+    alert('Column data copied to clipboard!');
+  });
+});
+</script>
+
+</body>
+</html>
