@@ -250,7 +250,12 @@ input {
 
 .custom-modal {
     --bs-modal-width: 750px !important;
+
+    && .modal-header {
+        color: white;
+    }
 }
+
 
 .btn-primary {
     background-color: rgb(187, 36, 36) !important;
